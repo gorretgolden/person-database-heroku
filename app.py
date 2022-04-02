@@ -1,5 +1,5 @@
 import connexion
-from flask import Flask, render_template
+from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 
@@ -26,7 +26,7 @@ db = SQLAlchemy(app)
 # Initialize Marshmallow
 ma = Marshmallow(app)
 
-@app.route('/')
+@app.route('/home')
 def home():
     """
     This function just responds to the browser ULR
@@ -34,7 +34,7 @@ def home():
 
     :return:        the rendered template 'home.html'
     """
-    return "page"
+    return jsonify({'yes':'yes'})
 
 
 
